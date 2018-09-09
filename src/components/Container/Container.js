@@ -15,6 +15,7 @@ const Container = props => {
                         name={image.name}
                         image={image.image}
                         onClick={props.onClick}
+                        class={props.class}
                     />
                 </div>
                 ) )

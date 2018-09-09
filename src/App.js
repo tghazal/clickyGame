@@ -13,7 +13,8 @@ class App extends Component {
     topScore: 0,
     score:0,
     imagesClicked : [],
-    message:""
+    message:"",
+    class:""
   }
 
  //whaen user click any image 
@@ -23,7 +24,7 @@ class App extends Component {
     if (this.state.imagesClicked.indexOf(id) === -1)
     {
       //increase the score by 1 
-      this.setState({score:this.state.score+ 1,message:"You Guessed correctly!!"})
+      this.setState({score:this.state.score+ 1,message:"You Guessed correctly!!",class:""})
       ////pushed the array to the imagesClicked array 
       this.state.imagesClicked.push(id)
     }
@@ -32,16 +33,14 @@ class App extends Component {
     //if score is > topScore then set topScore the the current score 
       if(this.state.score>this.state.topScore)
       {
-          this.setState({topScore:this.state.score,score:0,imagesClicked:[],message:"You Guessed Incorrectly!!"})
+          this.setState({topScore:this.state.score})
       }
-      else
-      {
-
-        this.setState({score:0,imagesClicked:[],message:"You Guessed Incorrectly!!"})
+     
+        this.setState({score:0,imagesClicked:[],message:"You Guessed Incorrectly!!",class:"shake"})
       }
     
       console.log("reset"+this.state.score)
-    }
+  
 
     // change the order of elements in the images array by removing random items and pushed it to the end of the array 
     this.state.images.forEach(element => {
@@ -64,19 +63,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="Container">
+      <div className="Container ">
         <div className="row">
           <div className="col-md-10 mx-auto" >
             <Header score={this.state.score} topScore={this.state.topScore} message={this.state.message}/>
           </div>
         </div>
         <div className="row">
-          <div className="col-md-10 mx-auto">
+          <div className="col-md-10 mx-auto border border-dark">
             <Welcome />      </div>
         </div>
-        <div className="row ">
-        <div className="col-md-10 mx-auto bg-light">
-          <Container images={this.state.images} onClick={this.handleClick} />
+        <div className="row">
+        <div className="col-md-10 mx-auto bg-light ">
+          <Container images={this.state.images} onClick={this.handleClick} class={this.state.class}/>
         </div></div>
         <Footer />
       </div >

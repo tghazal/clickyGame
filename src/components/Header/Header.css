@@ -1,4 +1,10 @@
-.right
+
+.parentPosition
 {
-    float: right;
+position:relative;
+}
+.position{
+    position:absolute;
+    right:0;
+
 }
