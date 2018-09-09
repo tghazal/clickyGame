@@ -5,13 +5,13 @@ const Header = props => (
    
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4 text-light mt-5 parentPosition">
            
-            <a className="navbar-brand mr-5" href="/">
+            <a className="navbar-brand" href="/">
                 <h1>Clicky Game</h1>
             </a>
             <div className="ml-5">
-            <h1 className="  mr-5 ml-5 text-danger" >
+            <h3 className=" navbar-brand mr-5 ml-5 text-danger" >
                 {props.message}
-            </h1>
+            </h3>
             </div>
             <h1 className=" navbar-brand  mr-5 position" >
                Score = {props.score} AND  Top Score = {props.topScore}
